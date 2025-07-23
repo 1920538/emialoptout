@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Opt-Out - IntegriTurf</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .form-container {
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      margin-top: 40px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #2c2c2c;
+    }
+    label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+      color: #333;
+      text-align: left;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #689F38;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.95;
+    }
+    .note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .note strong {
+      color: #333;
+    }
+    .privacy-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+    }
+    .privacy-note a {
+      color: #7CB342;
+      text-decoration: none;
+    }
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Unsubscribe from Email Updates</h2>
+    <p>Please enter your email to unsubscribe from order-related and marketing emails. If you change your mind and wish to receive updates again, you must contact your sales representative, the IntegriTurf support team, or place a new order to be re-added.</p>
+    <form>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+      <button type="submit">Unsubscribe</button>
+    </form>
+    <div class="note">
+      <p>To opt back in, contact <strong>info@integriturf.com</strong> or place a new order.</p>
+    </div>
+    <div class="privacy-note">
+      By providing your email you agree to our <a href="https://www.integriturf.com/privacy-policy/" target="_blank">Privacy Policy</a>.
+    </div>
+  </div>
+</body>
+</html>
