@@ -84,7 +84,7 @@
   <div class="form-container">
     <h2>Unsubscribe from Email Updates</h2>
     <p>Please enter your email to unsubscribe from order-related and marketing emails. If you change your mind and wish to receive updates again, you must contact your sales representative, the IntegriTurf support team, or place a new order to be re-added.</p>
-    <form action="email-opt-out-success.html">
+    <form id="optOutForm">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" required>
       <button type="submit">Unsubscribe</button>
@@ -96,5 +96,44 @@
       By providing your email you agree to our <a href="https://www.integriturf.com/privacy-policy/" target="_blank">Privacy Policy</a>.
     </div>
   </div>
+  <script>
+    document.getElementById('optOutForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const webhookUrl = 'https://hook.us2.make.com/k92h9keuxj88m49dirrtfo3jbnlyi5za';
+
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        const raw = await response.text();
+        let result;
+        try {
+          result = JSON.parse(raw);
+        } catch {
+          result = null;
+        }
+
+        if (response.ok && result?.status === 'success') {
+          window.location.href = 'success.html?email=' + encodeURIComponent(email);
+          return;
+        }
+
+        alert('There was an error processing your request. Please try again later.');
+      } catch (err) {
+        alert('There was an error submitting the form. Please try again later.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Unsubscribe';
+      }
+    });
+  </script>
 </body>
 </html>
