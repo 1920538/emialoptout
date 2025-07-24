@@ -115,11 +115,11 @@
   <div class="success-container">
     <div class="checkmark"></div>
     <h1>Email Unsubscribed</h1>
-    <p>You have successfully opted out of all future order-related and marketing emails from IntegriTurf.</p>
+    <p id="successMessage">You have successfully opted out of all future order-related and marketing emails from IntegriTurf.</p>
     <p>If you’d like to receive updates again, you’ll need to contact your sales rep or place a new order.</p>
 
     <div class="action-buttons">
-      <a href="email-opt-out.html" class="btn btn-secondary">Return to Opt-Out Form</a>
+      <a href="index.html" class="btn btn-secondary">Return to Opt-Out Form</a>
       <a href="https://integriturf.com" class="btn btn-primary">Visit integriturf.com</a>
     </div>
 
@@ -127,5 +127,12 @@
       Questions? Contact us at <a href="mailto:sales@integriturf.com">sales@integriturf.com</a>
     </div>
   </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    if (email) {
+      document.getElementById('successMessage').textContent = `${email} has been unsubscribed from all future order-related and marketing emails from IntegriTurf.`;
+    }
+  </script>
 </body>
 </html>
